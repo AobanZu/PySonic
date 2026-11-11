@@ -65,9 +65,9 @@ class SaveTensor:
         """
         
         if method == "cuda":
-            mdiv = cupy.array([model.mdiv], [model.dim], [model.batch], dtype=dtype)
-            tdiv = cupy.array([model.ddiv], [model.mdiv], dtype=dtype)
-            tdim = cupy.array([model.dim], [model.ddiv], dtype=dtype)
+            mdiv = cupy.array([model.mdiv, model.dim, model.batch], dtype=dtype)
+            tdiv = cupy.array([model.ddiv, model.mdiv], dtype=dtype)
+            tdim = cupy.array([model.dim, model.ddiv], dtype=dtype)
             
             tensors = {"mdiv": cupy.asnumpy(mdiv), "tdiv": cupy.asnumpy(tdiv), "tdim": cupy.asnumpy(tdim)}
             save_file(tensors, filename)
