@@ -8,6 +8,7 @@ version = "1.2"
 authors = [
   { name="AobanZ"},
 ]
+Changelog = "https://github.com/AobanZu/PySonic/blob/main/changelog.txt"
 description = "A statistical, low-memory AI-model pipeline for generation or tokenizing."
 readme = "README.md"
 requires-python = ">=3.9"
