@@ -1,7 +1,2 @@
 Changed:
-Added sonic.bigram.py
-Added cupy and cpu methods
-Removed generate and made init model seperate
-Added save tensor support
-Added method to tokenizer
-Moved parameter counter to sonic.bigram.py
+fixed fatal error preventing cuda from saving
