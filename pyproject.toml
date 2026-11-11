@@ -4,11 +4,11 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "SonicPerformance"
-version = "1.2.2"
+version = "1.2.3"
 authors = [
   { name="AobanZ"},
 ]
-description = "A statistical, low-memory AI-model pipeline for generation or tokenizing."
+description = "A light and fast AI-model library for general usage."
 readme = "README.md"
 requires-python = ">=3.9"
 classifiers = [

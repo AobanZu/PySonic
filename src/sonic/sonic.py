@@ -68,13 +68,15 @@ class SaveTensor:
             mdiv = cupy.array([model.mdiv, model.dim, model.batch], dtype=dtype)
             tdiv = cupy.array([model.ddiv, model.mdiv], dtype=dtype)
             tdim = cupy.array([model.dim, model.ddiv], dtype=dtype)
+            vocab = cupy.array([model.vocab], dtype=dtype)
             
-            tensors = {"mdiv": cupy.asnumpy(mdiv), "tdiv": cupy.asnumpy(tdiv), "tdim": cupy.asnumpy(tdim)}
+            tensors = {"mdiv": cupy.asnumpy(mdiv), "tdiv": cupy.asnumpy(tdiv), "tdim": cupy.asnumpy(tdim), "vc": cupy.asnumpy(vocab)}
             save_file(tensors, filename)
         if method == "cpu":
             mdiv = numpy.array([model.mdiv, model.dim, model.batch], dtype=dtype)
             tdiv = numpy.array([model.ddiv, model.mdiv], dtype=dtype)
             tdim = numpy.array([model.dim, model.ddiv], dtype=dtype)
+            vocab = numpy.array([model.vocab], dtype=dtype)
             
-            tensors = {"mdiv": numpy.asarray(mdiv), "tdiv": numpy.asarray(tdiv), "tdim": numpy.asarray(tdim)}
+            tensors = {"mdiv": numpy.asarray(mdiv), "tdiv": numpy.asarray(tdiv), "tdim": numpy.asarray(tdim), "vc": numpy.asarray(vocab)}
             save_file(tensors, filename)

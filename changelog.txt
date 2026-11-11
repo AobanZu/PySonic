@@ -1,2 +1,2 @@
 Changed:
-fixed fatal error preventing cuda from saving
+add vocab

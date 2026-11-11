@@ -1,7 +1,8 @@
 class Model:
-    def __init__(self, dim, batch, ddiv=32, mdiv=32):
+    def __init__(self, dim, batch, words, ddiv=32, mdiv=32):
         self.dim = dim
         self.batch = batch
+        self.vocab = len(words)
         self.ddiv = ddiv
         self.mdiv = mdiv
         
