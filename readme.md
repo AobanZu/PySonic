@@ -81,7 +81,7 @@ print(Generate(words, "the", temp))
 * Text generation
 
 ## Generation Implementation
-This is a baseline level implementation for generation using Sonic.
+This is a baseline level implementation for generation using the Sonic library.
 
 ```python
 def Generate(words, input, model):
@@ -123,6 +123,9 @@ def Generate(words, input, model):
 ## Requirements
 * Cupy
 * NumPy
+* os
+* re
+* safetensors/safetensors.numpy
 
 ## License
 

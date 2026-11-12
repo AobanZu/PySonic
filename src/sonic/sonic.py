@@ -1,6 +1,7 @@
 import os
 import re
 import cupy
+import random
 import numpy
 from safetensors.numpy import save_file
 from safetensors import safe_open
@@ -12,11 +13,11 @@ def OpenFile(file):
     
     Read a text file and return its contents as a string.
     
-    # Parameters
+    ### Parameters
     
     - **file** (str): A filename located in the root directory or a file path leading to it.
     
-    # Output
+    ### Output
     Returns a string in UTF-8 encoding.
     """
 
@@ -30,16 +31,35 @@ def OpenFile(file):
 def Tokenize(text, method="words", by=None):
     """
     # Tokenize
-    Split text into tokens, using numbers or words.
+    Split text into tokens, currently supporting two methods "num" and "words".
     
-    # Parameters
-    - **text**(s): The plaintext to convert to tokens.
-    - **method**: Methods to use, supports "num" and "words"
-    - **by**
+    ### Parameters
+    - **text**(`str`): The plaintext to convert to tokens.
+    - **method**(`str`): Methods to use, supports "num" and "words"
+    - **by**(`str`): The seperator to split the text by. 
+    
+    ### Returns
+    
+    - **Words**: Returns a list of strings.
+    - **Num**: Returns vocab(x), and the text turned into tokens(z)
     """
-    
+
+        
     if method == "words":
         return text.split(by)
+    
+    if method == "num":
+        split = text.split(by)
+        vc = {}
+        z = []
+        for word in split:
+            if word not in vc:
+                vc[word] = len(vc)   # next unused id
+            z.append(vc[word])
+        return vc, z
+            
+            
+            
 
 
 def Probs(words):

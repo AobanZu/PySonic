@@ -1,2 +1,2 @@
 Changed:
-add vocab
+fixed fatal num bug
