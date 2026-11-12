@@ -7,6 +7,20 @@ from safetensors import safe_open
 
 
 def OpenFile(file):
+    """
+    # Open File
+    
+    Read a text file and return its contents as a string.
+    
+    # Parameters
+    
+    - **file** (str): A filename located in the root directory or a file path leading to it.
+    
+    # Output
+    Returns a string in UTF-8 encoding.
+    """
+
+    
     path = os.path.join(os.path.dirname(__file__), file)
 
     with open(path, "r", encoding="utf-8") as f:
@@ -14,11 +28,45 @@ def OpenFile(file):
 
 
 def Tokenize(text, method="words", by=None):
+    """
+    # Tokenize
+    Split text into tokens, using numbers or words.
+    
+    # Parameters
+    - **text**(s): The plaintext to convert to tokens.
+    - **method**: Methods to use, supports "num" and "words"
+    - **by**
+    """
+    
     if method == "words":
         return text.split(by)
 
 
 def Probs(words):
+    """
+    # Probs
+    This function finds probabilities for each word. [!WARNING] >[DEPRECATED] 
+    Probabilities are counted from how common they are, this can be used for generation and
+    analysis on how the model works. 
+    ## Usage: 
+    
+    Probs(words="The quick brown fox ran over the lazy dog and the dog was angry.), Output:
+    
+    The : 3
+    dog : 2
+    over : 1
+    ran : 1
+    fox : 1
+    quick : 1
+    lazy : 1
+    brown : 1
+    was : 1
+    angry : 1
+    and : 1
+    over : 1
+    
+    """
+    
     probs = {}
 
     for word in words:
@@ -28,6 +76,7 @@ def Probs(words):
 
 def p(probs, model, method="cpu", dtype="float32"):
     """
+    # P - Function
     P operation to calculate probabilities.\n\n**probs** = Dict\n\n**model** = model\n\n**method** = cpu, cuda\n\n**dtype** = float32, float64, etc
     """
 
