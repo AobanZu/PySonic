@@ -1,2 +1,4 @@
 Changed:
-fixed fatal num bug
+added vocab to safetensors
+moved p to bigram now its called forward
+load tensor
